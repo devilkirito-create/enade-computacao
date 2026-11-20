@@ -32,7 +32,8 @@ function pad(n) {
   return String(n).padStart(2, "0");
 }
 function pageSrc(year, page) {
-  return `/provas/${year}/p${pad(page)}.jpg`;
+  const base = import.meta.env.BASE_URL || "/";
+  return `${base}provas/${year}/p${pad(page)}.jpg`;
 }
 function isRight(q, choice) {
   return Boolean(q.annulled) || choice === q.answer;
